@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Clients</title>
+</head>
+<body>
+    <h1>Search Clients</h1>
+    <form method="POST" action="/search_clients">
+        <label for="tag_name">Tag Name:</label>
+        <input type="text" id="tag_name" name="tag_name">
+        <input type="submit" value="Search">
+    </form>
+
+    {% if clients %}
+        <h2>Search Results:</h2>
+        <ul>
+        {% for client in clients %}
+            <li>{{ client.name }} - {{ client.bday }} - {{ client.email }} - {{ client.phone }} - {{ client.address }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
